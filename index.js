@@ -179,5 +179,5 @@ var corsOptions = {
 app.use(cors(corsOptions));
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
-app.listen(80);
-console.log('Running a GraphQL API server at http://localhost:80');
+app.listen(4000);
+console.log('Running a GraphQL API server at http://localhost:4000');

@@ -2,6 +2,7 @@ var express = require('express');
 var { graphqlHTTP } = require('express-graphql');
 var { buildSchema } = require('graphql');
 const cors = require('cors');
+const os = require('os');
 
 // Construct a schema, using GraphQL schema language
 var schema = buildSchema(`
@@ -179,5 +180,18 @@ var corsOptions = {
 app.use(cors(corsOptions));
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
-app.listen(443);
-console.log('Running a GraphQL API server at http://localhost:443');
+app.listen(4000);
+
+console.log(os.hostname()); 
+
+const dns = require('dns');
+dns.lookup(os.hostname(), 
+(err, addresses, family) => {
+console.log('addresses:', addresses);  
+// Print the family found of user  
+console.log('family:', family);
+});
+
+
+console.log('----------------------------------------');
+console.log('Running a GraphQL API server at Port 4000');
